@@ -35,30 +35,7 @@ bool isSpecial(char temp, char spec[]) {
 	return false;
 }
 
-int isReserved(char test[], char set[][10]) {
-	for (int n = 0; n < 4; n++) {	//Reserved word check
-		if (test[0] == set[n][0]) {
-			int counter = 0;
-			bool check = true;
-			for each (char temp in set[n])
-			{
-				if (test[counter] != temp) {
-					if (temp != '\0') {
-						check = false;
-						break;
-					}
-				}
-				counter++;
-			}
-			if (check == true) { return n; }
-			return -1;
-		}
-	}
-	return -1;
-}
-
 int main() {
-	char reservedWords[4][10] = { "cout<<","for","int","while" };
 	char special[10] = { '+' , '=' , '*' , '-' , ';' , '(' , ')' , ',' , '{' , '}' };
 	char w[200];
 
@@ -76,17 +53,16 @@ int main() {
 			if (w[i] == '/' && w[i + 1] == '/') {
 				i+=2;
 				while (w[i] != '/' && w[i + 1] != '/') {
-					
-					if (w[i] == '\0') {
+					if (w[i] == NULL) {
 						inp.getline(w, 200);
 						break;
 					}
 					i++;
-				} 
+				}
 				break; //skips any commented code & gets next line
 			}
 			else if (w[i] == ' ') {
-				//does nothing but get next char
+				//does nothing but get next char by skiping to end of "if" block
 			}
 			else if (isNumber(w[i])) // Integer check
 			{						//single digits only
@@ -96,22 +72,14 @@ int main() {
 			else if (isLetter(w[i])) {
 				char word[15];
 				int n = 0;
-				while (!isSpecial(w[i], special) && w[i] != ' ' && w[i] != '\0') {
+				while (!isSpecial(w[i], special) && w[i] != ' ' && w[i] != NULL) {
 					word[n] = w[i];
 					i++; n++;
 				}
 				i--;
 				word[n] = char(0);
-				//int check = isReserved(word, reservedWords);
-				//if (check != -1) {
-			//		outp << reservedWords[check];
-			//   	cout << reservedWords[check];
-			//	}
-			//	else
-			//	{
 					cout << word;
 					outp << word;
-			//	}
 					if (w[i + 1] != NULL) {
 						outp << " ";
 						cout << " ";
@@ -121,8 +89,7 @@ int main() {
 					}
 			}
 			else
-			{
-				//cout << "Special\n";
+			{				
 				if (w[i] == ';') {
 					outp << w[i] << endl;
 					cout << w[i] << endl;
