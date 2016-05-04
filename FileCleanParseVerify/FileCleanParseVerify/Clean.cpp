@@ -139,6 +139,7 @@ int main() {
 				}
 				i--;
 				word[n] = char(0);
+<<<<<<< HEAD
 				cout << word;
 				outp << word;
 				if (w[i + 1] != NULL) {
@@ -152,6 +153,20 @@ int main() {
 			}
 			else
 			{
+=======
+					cout << word;
+					outp << word;
+					if (w[i + 1] != NULL) {
+						outp << " ";
+						cout << " ";
+					}else{
+						outp << endl;
+						cout << endl;
+					}
+			}
+			else
+			{				
+>>>>>>> refs/remotes/origin/master
 				if (w[i] == ';') {
 					outp << w[i] << endl;
 					cout << w[i] << endl;
