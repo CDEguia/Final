@@ -138,8 +138,7 @@ int main() {
 					i++; n++;
 				}
 				i--;
-				word[n] = char(0);
-<<<<<<< HEAD
+				word[n] = char(0); //adds the terminal character to the end of the word
 				cout << word;
 				outp << word;
 				if (w[i + 1] != NULL) {
@@ -151,22 +150,7 @@ int main() {
 					cout << endl;
 				}
 			}
-			else
-			{
-=======
-					cout << word;
-					outp << word;
-					if (w[i + 1] != NULL) {
-						outp << " ";
-						cout << " ";
-					}else{
-						outp << endl;
-						cout << endl;
-					}
-			}
-			else
-			{				
->>>>>>> refs/remotes/origin/master
+			else {
 				if (w[i] == ';') {
 					outp << w[i] << endl;
 					cout << w[i] << endl;
