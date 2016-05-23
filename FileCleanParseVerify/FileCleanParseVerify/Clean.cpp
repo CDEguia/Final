@@ -282,6 +282,7 @@ int main() {
 		else if (!accepted) {
 			cout << "This line is not accepted.\n\n";
 		}
+		system("pause");
 		outp << endl;
 		lineNumber++;
 		inp.getline(w, 200);
@@ -364,7 +365,11 @@ int main() {
 	inp.getline(w, 200);
 	}
 	*/
-	cout << "Translating into C++ code complete!\n";
+	cout << "return 0 ;" << endl;
+	outp << "return 0 ;" << endl;
+	cout << "}" << endl;
+	outp << "}" << endl;
+	cout << "\nTranslating into C++ code complete!\n";
 	inp.close();
 	outp.close();
 	system("pause"); //terminate the program
